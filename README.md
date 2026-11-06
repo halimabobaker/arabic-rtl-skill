@@ -24,6 +24,62 @@ Ask any AI agent for an Arabic screen and you get:
 
 This skill gives the agent the rules, the platform-specific APIs, and a review checklist so it gets these right without being told.
 
+## Before / after
+
+**Flutter** — what agents usually write:
+
+```dart
+Padding(
+  padding: const EdgeInsets.only(left: 16),
+  child: Row(children: [
+    SvgPicture.asset('assets/arrow.svg'),
+    Text(
+      count == 1 ? 'ملف واحد' : '$count ملفات',
+      textAlign: TextAlign.left,
+      style: const TextStyle(letterSpacing: 1.2),
+    ),
+  ]),
+)
+
+TextField(keyboardType: TextInputType.phone)
+```
+
+With the skill:
+
+```dart
+Padding(
+  padding: const EdgeInsetsDirectional.only(start: 16),
+  child: Row(children: [
+    Transform.flip(
+      flipX: Directionality.of(context) == TextDirection.rtl,
+      child: SvgPicture.asset('assets/arrow.svg'),
+    ),
+    Text(l10n.filesCount(count), textAlign: TextAlign.start),
+  ]),
+)
+
+TextField(
+  keyboardType: TextInputType.phone,
+  textDirection: TextDirection.ltr,
+  inputFormatters: [WesternDigitsFormatter()],
+)
+```
+
+Padding and alignment follow the reading direction, the arrow points the right way, all six Arabic plural forms come from the ARB file, letter connections stay intact, and the phone field stays LTR and accepts `٠٩١…`.
+
+**CSS** — before → after:
+
+```css
+.card  { padding-left: 16px; text-align: left; letter-spacing: .05em; text-transform: uppercase; }
+.badge { position: absolute; right: 8px; }
+```
+
+```css
+.card  { padding-inline-start: 16px; text-align: start; letter-spacing: .05em; text-transform: uppercase; }
+.badge { position: absolute; inset-inline-end: 8px; }
+:lang(ar) .card { letter-spacing: 0; text-transform: none; line-height: 1.7; }
+```
+
 ## What's covered
 
 | File | Contents |
@@ -43,7 +99,7 @@ The agent loads only `SKILL.md` up front and reads a reference when it touches t
 **Claude Code** — copy the `arabic-rtl` folder into your skills directory:
 
 ```bash
-git clone https://github.com/<your-username>/arabic-rtl-skill.git
+git clone https://github.com/halimabobaker/arabic-rtl-skill.git
 ```
 
 ```bash
