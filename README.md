@@ -96,7 +96,20 @@ The agent loads only `SKILL.md` up front and reads a reference when it touches t
 
 ## Install
 
-**Claude Code** — copy the `arabic-rtl` folder into your skills directory:
+**Claude Code** — install it as a plugin, inside a Claude Code session:
+
+```
+/plugin marketplace add halimabobaker/arabic-rtl-skill
+/plugin install arabic-rtl@arabic-rtl-skill
+```
+
+Or from the terminal:
+
+```bash
+claude plugin marketplace add halimabobaker/arabic-rtl-skill && claude plugin install arabic-rtl@arabic-rtl-skill
+```
+
+**Manual install** — copy the `arabic-rtl` folder into your skills directory:
 
 ```bash
 git clone https://github.com/halimabobaker/arabic-rtl-skill.git

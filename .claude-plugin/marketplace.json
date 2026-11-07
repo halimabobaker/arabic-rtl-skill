@@ -1,0 +1,20 @@
+{
+  "name": "arabic-rtl-skill",
+  "description": "Skills for building Arabic and RTL interfaces correctly.",
+  "owner": {
+    "name": "halimabobaker",
+    "url": "https://github.com/halimabobaker"
+  },
+  "plugins": [
+    {
+      "name": "arabic-rtl",
+      "description": "Teaches coding agents to build Arabic and RTL interfaces correctly: layouts, fonts, numbers, dates, currency, plurals, UI copy, and Arabic search across Flutter, Web, React Native, Android, and iOS.",
+      "version": "1.0.0",
+      "category": "development",
+      "tags": ["arabic", "rtl", "i18n", "flutter", "localization"],
+      "source": "./",
+      "strict": false,
+      "skills": ["./arabic-rtl"]
+    }
+  ]
+}
