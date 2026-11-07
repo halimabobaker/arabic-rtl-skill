@@ -1,5 +1,7 @@
 # arabic-rtl-skill
 
+![arabic-rtl-skill: before and after](assets/social-preview.png)
+
 A skill that teaches coding agents (Claude Code, Cursor, Codex, Copilot, …) to build Arabic and RTL interfaces correctly — the first time.
 
 <div dir="rtl">
